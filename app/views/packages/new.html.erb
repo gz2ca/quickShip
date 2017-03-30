@@ -3,29 +3,30 @@
 
   <%= form_for :package, url: packages_path do |f| %>
 
-  <% if @package.errors.any? %>
-      <div id="error_explanation">
-        <h3>
-           Sorry, there are a couple things that aren't quite right.
-        </h3>
-        <ul>
-          <% @package.errors.each do |attr, msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-<% if !@verify.nil? %>
-  <% if @verify.delivery.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-          <% @verify.delivery.errors.each do |msg| %>
-            <li><%= msg.message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-<% end %>
+  <% if @package.errors.any? || (!@verify.nil? && @verify.delivery.errors.any?) %>
+     <h3>Sorry, there are a couple things that aren't quite right.</h3>
+    <% if @package.errors.any? %>
+        <div id="error_explanation">
+         
+          <ul>
+            <% @package.errors.each do |attr, msg| %>
+              <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+  <% if !@verify.nil? %>
+    <% if @verify.delivery.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+            <% @verify.delivery.errors.each do |msg| %>
+              <li><%= msg.message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+  <% end %>
+<% end %>  
   <h3>Please enter in the source address</h3>
 
     <div class="field">
@@ -42,11 +43,11 @@
     </div>
     <div class="field">
       <%= f.label :from_state, "State"%><br>
-      <%= f.text_field :from_state, require: true %>
+      <%= f.select :from_state, options_for_select(us_states),{}, class: 'form-control', require: true %>
     </div>
     <div class="field">
       <%= f.label :from_country, "Country"%><br>
-      <%= f.country_select :from_country, priority_countries: ["US"], only: ["US"], required: true %>
+      <%= f.country_select :from_country, priority_countries: ["US"], only: ["US"], class: "form-control", required: true %>
     </div>
     <div class="field">
       <%= f.label :from_zip, "Zip Code"%><br>
@@ -73,11 +74,11 @@
     </div>
     <div class="field">
       <%= f.label :to_state, "State"%><br>
-      <%= f.text_field :to_state, required: true %>
+      <%= f.select :from_state, options_for_select(us_states),{}, class: 'form-control', require: true %>
     </div>
     <div class="field">
       <%= f.label :to_country, "Country"%><br>
-      <%= f.country_select :to_country, priority_countries: ["US"], only: ["US"], required: true %>
+      <%= f.country_select :to_country, priority_countries: ["US"], only: ["US"], class: "form-control", required: true %>
     </div>
       <div class="field">
       <%= f.label :to_zip, "Zip Code"%><br>
@@ -92,19 +93,19 @@
     
     <div class="field">
       <%= f.label :length, "Length (inches)"%><br>
-      <%= f.number_field :length, class: :text_field, min: "0", step: :any %>
+      <%= f.number_field :length, class: :text_field, min: "0.1", step: :any %>
     </div>
     <div class="field">
       <%= f.label :width, "Width (inches)" %><br>
-      <%= f.number_field :width, class: :text_field, min: "0", step: :any %>
+      <%= f.number_field :width, class: :text_field, min: "0.1", step: :any %>
     </div>
       <div class="field">
             <%= f.label :height, "Height (inches)"%><br>
-      <%= f.number_field :height, class: :text_field, min: "0", step: :any%>
+      <%= f.number_field :height, class: :text_field, min: "0.1", step: :any%>
     </div>
       <div class="field">
             <%= f.label :weight, "Weight (oz)"%><br>
-      <%= f.number_field :weight, class: :text_field, min: "0", step: :any, required: true%>
+      <%= f.number_field :weight, class: :text_field, min: "0.1", step: :any, required: true%>
     </div>
     <div class="actions">
       <%= f.submit "Next", class: 'btn btn-primary btn-lg' %>
