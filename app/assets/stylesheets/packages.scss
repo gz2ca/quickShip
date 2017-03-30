@@ -1,0 +1,42 @@
+// Place all the styles related to the Packages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	font-family: "Lato";
+}
+
+.package-homepage {
+	background: linear-gradient(
+                  rgba(0.1, 0, 0, 0),
+                  rgba(0.1, 0, 0, 0)
+    ),
+    image-url("nature2.jpg");
+
+    background-size:cover; 
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	-webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.package-form {
+  	text-align:left;
+}
+
+.my-button {
+	display: inline-block;
+}
+
+.btn {
+	margin-top: 8px;
+}
+
+.btn-success {
+	margin-left: 5px;
+}

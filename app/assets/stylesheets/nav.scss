@@ -1,0 +1,29 @@
+.container-fluid {
+  padding-right: 50px;
+
+}
+
+.navbar-default {
+    box-shadow: 0px 0px;
+    background-color: rgba(0,0,0,0.0);
+    border-width: 0;
+    font-family: "Lato";
+  
+  .navbar-brand {
+    font-weight: 600;
+    font-size: 1.3em;
+    color: #286090;
+    
+    &:hover, &:focus {
+      color: #fdd785; 
+    }
+
+  }
+
+
+} 
+
+img {
+  width: 20%;
+  padding: 5px;
+}

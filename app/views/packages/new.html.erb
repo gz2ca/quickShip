@@ -1,0 +1,116 @@
+<body class="package-homepage">
+<div class="container package-form">
+
+  <%= form_for :package, url: packages_path do |f| %>
+
+  <% if @package.errors.any? %>
+      <div id="error_explanation">
+        <h3>
+           Sorry, there are a couple things that aren't quite right.
+        </h3>
+        <ul>
+          <% @package.errors.each do |attr, msg| %>
+          <%= attr %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+<% if !@verify.nil? %>
+  <% if @verify.delivery.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @verify.delivery.errors.each do |msg| %>
+            <li><%= msg.message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+<% end %>
+  <h3>Please enter in the source address</h3>
+
+    <div class="field">
+      <%= f.label :from_name, "Name" %><br>
+      <%= f.text_field :from_name, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :from_address, "Street Address"%><br>
+      <%= f.text_field :from_address, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :from_city, "City"%><br>
+      <%= f.text_field :from_city, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :from_state, "State"%><br>
+      <%= f.text_field :from_state, require: true %>
+    </div>
+    <div class="field">
+      <%= f.label :from_country, "Country"%><br>
+      <%= f.country_select :from_country, priority_countries: ["US"], only: ["US"], required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :from_zip, "Zip Code"%><br>
+      <%= f.text_field :from_zip, required: true %>
+    </div>
+      <div class="field">
+      <%= f.label :from_phone, "Phone Number"%><br>
+      <%= f.text_field :from_phone %>
+    </div>
+
+  	<h3>Please enter in the destination address</h3>
+
+    <div class="field">
+      <%= f.label :to_name, "Name" %><br>
+      <%= f.text_field :to_name, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :to_address, "Street Address"%><br>
+      <%= f.text_field :to_address, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :to_city, "City"%><br>
+      <%= f.text_field :to_city, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :to_state, "State"%><br>
+      <%= f.text_field :to_state, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :to_country, "Country"%><br>
+      <%= f.country_select :to_country, priority_countries: ["US"], only: ["US"], required: true %>
+    </div>
+      <div class="field">
+      <%= f.label :to_zip, "Zip Code"%><br>
+      <%= f.text_field :to_zip, required: true %>
+    </div>
+      <div class="field">
+      <%= f.label :to_phone, "Phone Number"%><br>
+      <%= f.text_field :to_phone %>
+    </div>
+
+    <h3>Please enter in the dimensions of the package</h3>
+    
+    <div class="field">
+      <%= f.label :length, "Length (inches)"%><br>
+      <%= f.number_field :length, class: :text_field, min: "0", step: :any %>
+    </div>
+    <div class="field">
+      <%= f.label :width, "Width (inches)" %><br>
+      <%= f.number_field :width, class: :text_field, min: "0", step: :any %>
+    </div>
+      <div class="field">
+            <%= f.label :height, "Height (inches)"%><br>
+      <%= f.number_field :height, class: :text_field, min: "0", step: :any%>
+    </div>
+      <div class="field">
+            <%= f.label :weight, "Weight (oz)"%><br>
+      <%= f.number_field :weight, class: :text_field, min: "0", step: :any, required: true%>
+    </div>
+    <div class="actions">
+      <%= f.submit "Next", class: 'btn btn-primary btn-lg' %>
+    </div>
+  <% end %> 
+
+</div>
+</body>

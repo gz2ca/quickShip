@@ -1,0 +1,109 @@
+<body class="package-homepage">
+	<div class="container package-form">
+		<h3>Source Address</h3>
+		<p> <strong>Name:</strong>
+		  <%= @package.from_name %>
+		</p>
+		<p>
+		  <strong>Address:</strong>
+		  <%= @package.from_address %>
+		</p>
+
+		<p>
+		  <strong>City:</strong>
+		  <%= @package.from_city %>
+		</p>
+		 
+		<p>
+		  <strong>State:</strong>
+		  <%= @package.from_state %>
+		</p>
+
+		<p>
+		  <strong>Country:</strong>
+		  <%= @package.from_country %>
+		</p>
+
+		<p>
+		  <strong>Zip Code:</strong>
+		  <%= @package.from_zip %>
+		</p>
+
+
+		<p>
+		  <strong>Phone Number:</strong>
+		  <%= @package.from_phone %>
+		</p>
+
+
+		<h3>Destination Address </h3>
+		<p>
+		  <strong>Name:</strong>
+		  <%= @package.to_name %>
+		</p>
+
+		<p>
+		  <strong>Address:</strong>
+		  <%= @package.to_address %>
+		</p>
+
+		<p>
+		  <strong>City:</strong>
+		  <%= @package.to_city %>
+		</p>
+		 
+		<p>
+		  <strong>State:</strong>
+		  <%= @package.to_state %>
+		</p>
+
+		<p>
+		  <strong>Country:</strong>
+		  <%= @package.to_country %>
+		</p>
+
+		<p>
+		  <strong>Zip Code:</strong>
+		  <%= @package.to_zip %>
+		</p>
+
+		<p>
+		  <strong>Phone Number:</strong>
+		  <%= @package.to_phone %>
+		</p>
+
+		<h3>Package Dimensions</h3>
+
+		<p>
+		  <strong>Length:</strong>
+		  <%= @package.length %>
+		</p>
+
+		<p>
+		  <strong>Width:</strong>
+		  <%= @package.width %>
+		</p>
+
+		<p>
+		  <strong>Height:</strong>
+		  <%= @package.height %>
+		</p>
+		 
+		<p>
+		  <strong>Weight:</strong>
+		  <%= @package.weight %>
+		</p>
+
+
+		<p>
+		<!-- <%= @rates %> -->
+
+		<div class="my-button">
+		  <%= link_to 'Modify Information', new_package_path ,class: 'btn btn-primary btn-lg' %>
+		</div>
+		<div class="my-button">
+		  <%= link_to 'Print a Label', @label, :target => '_blank',class: 'btn btn-success btn-lg' %>
+		</div>
+		</p>
+	</div>
+</body>	

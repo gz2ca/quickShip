@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_name: MyText
+  from_address: MyText
+
+two:
+  from_name: MyText
+  from_address: MyText

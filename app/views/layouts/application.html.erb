@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QuickShip</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/sailboat-128.png"/>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <!-- <img class="logo", src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/sailboat-128.png">
+        <%= link_to 'QuickShip', root_path, class: 'navbar-brand' %> -->
+        <a class="navbar-brand" href="/">
+            <span><img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/sailboat-128.png"/></span>
+            QuickShip
+        </a>
+    </div>
+  </div>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>
