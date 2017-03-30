@@ -4,6 +4,7 @@ EasyPost.api_key = Rails.application.secrets.EASYPOST_KEY
 class PackagesController < ApplicationController
 	
 	def index
+		redirect_to :root
 	end
 
 	def new

@@ -74,7 +74,7 @@
     </div>
     <div class="field">
       <%= f.label :to_state, "State"%><br>
-      <%= f.select :from_state, options_for_select(us_states),{}, class: 'form-control', require: true %>
+      <%= f.select :to_state, options_for_select(us_states),{}, class: 'form-control', require: true %>
     </div>
     <div class="field">
       <%= f.label :to_country, "Country"%><br>
@@ -93,15 +93,15 @@
     
     <div class="field">
       <%= f.label :length, "Length (inches)"%><br>
-      <%= f.number_field :length, class: :text_field, min: "0.1", step: :any %>
+      <%= f.number_field :length, class: :text_field, min: "0.1", step: :any, required: true %>
     </div>
     <div class="field">
       <%= f.label :width, "Width (inches)" %><br>
-      <%= f.number_field :width, class: :text_field, min: "0.1", step: :any %>
+      <%= f.number_field :width, class: :text_field, min: "0.1", step: :any, required: true %>
     </div>
       <div class="field">
             <%= f.label :height, "Height (inches)"%><br>
-      <%= f.number_field :height, class: :text_field, min: "0.1", step: :any%>
+      <%= f.number_field :height, class: :text_field, min: "0.1", step: :any, required: true%>
     </div>
       <div class="field">
             <%= f.label :weight, "Weight (oz)"%><br>
